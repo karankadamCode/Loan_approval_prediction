@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Approval Prediction</title>
+  <!-- Add Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Add Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <!-- Add custom styles -->
+  <style>
+    /* Center align the header text */
+    .header {
+      text-align: center;
+    }
+    /* Add margin to the top of the header */
+    .header.top-margin {
+      margin-top: 50px;
+    }
+    /* Add padding to the bottom of the section */
+    .section.bottom-padding {
+      padding-bottom: 50px;
+    }
+    /* Style the input fields */
+    input[type=text]:focus:not([readonly]) {
+      border-bottom: 1px solid #2196F3;
+      box-shadow: 0 1px 0 0 #2196F3;
+    }
+    /* Style the predict button */
+    .btn-large {
+      margin-top: 20px;
+      padding: 0 2rem;
+      font-weight: 500;
+      background-color: #F57C00;
+      border-radius: 30px;
+    }
+    .btn-large:hover {
+      background-color: #0e8039;
+    }
+    /* Style the prediction text */
+    h4.prediction {
+      margin-top: 50px;
+      font-weight: 500;
+      text-align: center;
+    }
+    h4.prediction span {
+      color: #F57C00;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section bottom-padding" id="index-banner">
+    <div class="container">
+      <h1 class="header top-margin orange-text">Loan Approval Prediction</h1>
+      <div class="row">
+        <h4 class="header col s12 light">Predict the probability of Loan Approval</h4>
+      </div>
+      <div class="row">
+        <form action="/predict" method="POST" class="col s12">
+          <div class="row">
+            <div class="input-field col s4">
+              <input id="first_name" name="Age" type="text" class="validate">
+              <label for="first_name">Age</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="last_name" name="Income" type="text" class="validate">
+              <label for="last_name">Income</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="_name" name="Credit Score" type="text" class="validate">
+              <label for="_name">Credit Score</label>
+            </div>
+          </div>
+          <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light">Predict Probability</button>
+          </div>
+        </form>
+      </div>
+      {% if pred %}
+        <h4 class="prediction"><span>{{ pred }}</span></h4>
+      {% endif %}
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Loan Approval Prediction</title>
+    <!-- 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+
+  <body>
+
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Loan Approval Prediction</h1>
+        <div class="row center">
+          <h4 class="header col s12 light">Predict the probability of Loan Approval</h4>
+        </div>
+
+        <div class="row">
+          <form action='/predict' method="POST" class="col s12">
+            <div class="row">
+              <div class="input-field col s4">
+                <label for="first_name"><b>Age</b></label>
+                <br>
+                <input id="first_name" name='Age' type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="last_name"><b>Income</b></label>
+                <br>
+                <input id="last_name" name="Income" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="_name"><b>Credit Score</b></label>
+                <br>
+                <input id="_name" name="Credit Score" type="text" class="validate">
+              </div>
+            </div>
+            <div class="row center">
+              <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="center" id="prediction">
+          <br><h4><b>{{pred}}</b></h4><br>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Forest Fire Prevention</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+ 
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Loan Approval Prediction</h1>
+      <div class="row center">
+        <h4 class="header col s12 light">Predict the probability of Loan Approval
+        <br>
+        </h4>
+      </div>
+
+              <div class="row">
+    <form action='/predict' method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s4">
+            <label for="first_name"><b>Age</b></label>
+            <br>
+          <input   id="first_name" name='Age' type="text" class="validate">
+        </div>
+        <div class="input-field col s4">
+
+          <label for="last_name"><b>Income</b></label>
+            <br>
+          <input id="last_name"  name="Income" type="text" class="validate">
+
+        </div>
+
+        <div class="input-field col s4">
+            <label for="_name"><b>Credit Score</b></label>
+            <br>
+          <input id="_name" name="Credit Score" type="text" class="validate">
+
+        </div>
+
+      </div>
+
+      <div class="row center">
+
+          <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+      </div>
+    </form>
+      </div>
+
+      <br><h4 align="center"<b>{{pred}}</b></h4>
+        <br>
+
+    </div>
+  </div>
+
+  </body>
+</html>
+ -->
